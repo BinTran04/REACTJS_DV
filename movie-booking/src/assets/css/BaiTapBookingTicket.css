@@ -1,0 +1,197 @@
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url("../font/Pony.ttf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+/* Container chính của ứng dụng */
+.bookingMovie {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: "Roboto";
+}
+
+/* Lớp phủ trên ảnh nền */
+.bookingMovie::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Lớp phủ đen trong suốt */
+}
+
+/* Các tiêu đề */
+.bookingMovie h1,
+.bookingMovie h2 {
+  font-family: "Roboto", cursive;
+  text-shadow: 2px 2px 5px rgba(255, 165, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+/* Màn hình */
+.screen {
+  background-color: #ffa500;
+  width: 80%;
+  height: 30px;
+  margin: 20px auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  filter: drop-shadow(4px 30px 20px rgba(255, 255, 255, 0.5));
+}
+
+/* Ghế cơ bản */
+.ghe {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ddd;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1); /* Hơi trong suốt */
+  color: #ffd700;
+  transition: all 0.2s;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.ghe:hover:not(:disabled) {
+  border-color: #ffa500;
+  background-color: rgba(255, 215, 0, 0.3);
+}
+
+.ghe:focus {
+  outline: none;
+  box-shadow: 0 0 8px #ffa500;
+}
+
+/* Ghế đã được chọn (đã đặt) */
+.gheDuocChon {
+  background-color: #8b4513;
+  cursor: not-allowed;
+  border-color: #5a2e0a;
+  color: #fff;
+  box-shadow: none;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+}
+
+/* Ghế đang được người dùng chọn */
+.gheDangChon {
+  background-color: #28a745; /* Màu xanh lá cây */
+  border-color: #1a7e33;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+}
+
+/* Số hàng ghế (A, B, C...) và số thứ tự cột (1, 2, 3...) */
+.rowNumber {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: transparent; /* Nền trong suốt */
+  border: none; /* Không có viền */
+}
+
+/* Hàng đầu tiên (số 1-12) */
+.d-flex:first-child .rowNumber {
+  color: #ffa500;
+  font-size: 18px;
+}
+
+/* Bảng thông tin đặt vé */
+.table {
+  background-color: rgba(255, 255, 255, 0.1); /* Nền đen trong suốt */
+  border: 1px solid #444;
+  width: 100%; /* <-- THÊM ĐỂ BẢNG RỘNG 100% */
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #555;
+  padding: 10px;
+  vertical-align: middle;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-align: center; /* <-- THÊM ĐỂ CĂN GIỮA */
+}
+
+.table thead th {
+  color: #ffa500;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table tbody tr {
+  transition: background-color 0.2s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table tbody td {
+  color: #ffd700;
+  font-size: 18px;
+}
+
+.table tfoot td {
+  color: #ffa500;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* --- THÊM MỚI ĐỂ CHIA CỘT RÕ RÀNG --- */
+.table thead th:nth-child(1) {
+  width: 50%; /* Cột Số ghế */
+}
+
+.table thead th:nth-child(2) {
+  width: 30%; /* Cột Giá */
+}
+
+.table thead th:nth-child(3) {
+  width: 20%; /* Cột Hủy */
+}
+/* --- HẾT PHẦN THÊM MỚI --- */
+
+/* Nút hủy */
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+  transform: scale(1.05);
+}
+/* <-- ĐÃ XÓA DẤU } THỪA Ở ĐÂY */
